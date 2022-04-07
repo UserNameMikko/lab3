@@ -20,9 +20,42 @@
 Необходимо учитывать то, что пользовательское число и объект класса могут находится и слева и справа от оператора.
 На усмотрение студента остается решение какой оператор какой перегрузки требует(метод или дружественная функция)*/
 #include "Deque.h"
+#include "Int.h"
+template<class T> struct Data{
+    T value;
+    T* ptr = &value;
+};
 
 int main() {
-    Deque<double> d;
+    Deque<int> deque;
+    int sizeOfDeque = 0;
+    int choose = 0;
+    std::cout<<"input size of deque: ";
+    std::cin>>sizeOfDeque;
+
+    // fill the deque
+    for(int i = 0; i < sizeOfDeque;i++) {
+        Data<int> *data = new Data<int>;
+        std::cout << "input a value: ";
+        std::cin >> data->value;
+        std::cout << "choose how do you want to fill the deque:\n1-push_front\n2-push_back\n-->";
+        std::cin >> choose;
+        switch (choose) {
+            case 1:
+                deque.push_front(data->ptr);
+                break;
+            case 2:
+                deque.push_back(data->ptr);
+                break;
+            default://exception
+                std::cout<<("Incorrect input")<<std::endl;
+                i--;
+                break;
+        }
+    }
+
+    std::cout<<deque<<"\n";
+    std::cout<<"negative data: -"<<deque;
     return 0;
 }
 

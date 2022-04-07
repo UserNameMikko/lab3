@@ -21,60 +21,52 @@ private:
 protected:
     int size;
 public:
-    // allocator - распределитель
-    Deque() {//Constructor without params
+    //Constructor without params
+    Deque() {
         size = 0;
         head = NULL;
         tail = NULL;
     }
-    //explicit Deque(int SizeOfDeque); // explicit constructor (yavniy)
-    //Deque(const Deque& DequeCopy); //
-    //~Deque(); //Destructor*/
-    // methods of the deque
 
-    T pop_back() {// Erases the element at the end of the deque
+    T* pop_back() {// Erases the element at the end of the deque
         if (head) {
             Node<T>* tail = new Node<T>(NULL);
             for (Node<T>* i = head; i != NULL; i = i->Next) {
                 if (i->Next == NULL)
                     tail = i;
             }
-            T temp = tail->Data;
+            T* temp = tail->Data;
             Node<T>* p = tail;
             tail = p->Prev;
             tail->Next = NULL;
             size--;
             return temp;
-        }
-        else
+        } else
             return NULL;
     }
-    T pop_front(){ // Erases the element at the start of the deque
+    T* pop_front(){ // Erases the element at the start of the deque
         if (head) {
-            int temp = head->Data;
+            int* temp = head->Data;
             Node<T>* p = head;
             head = p->Next;
             delete[] p;
             size--;
             return temp;
-        }
-        else
+        } else
             return NULL;
 
     }
     void push_front(T* data) {// Adds an element to the start of the deque
         size++;
         if (head != NULL) {
-            Node<T>* temp = new Node<T>(data);
+            Node<T> *temp = new Node<T>(data);
             temp->Next = head;
             head->Prev = temp;
             head = temp;
-        }
-        else {
+        } else {
             head = new Node<T>(data);
         }
     }
-
     void push_back(T* data){ // Adds an element to the end of the deque
         size++;
         if (head != NULL) {
@@ -87,8 +79,7 @@ public:
             tail->Next = temp;
             temp->Prev = tail;
             tail = temp;
-        }
-        else {
+        } else {
             head = new Node<T>(data);
         }
     }
@@ -125,14 +116,14 @@ public:
         }
         return *this;
     }
+   /* T& operator--(){//prefix decrement operator
+
+    }*/
+
     friend std::ostream& operator<<(std::ostream& os, const Deque<T>& obj) {
         for (Node<T>* i = obj.head; i != NULL; i = i->Next)
-            os << i->Data << " ";
+            os << *i->Data  << " ";
         return os;
     }
-    void printDeque() {
-        for (int i = size - 1; i >= 0; i--)
-            std::cout << head->Data << " ";
-    }
-    void swap(); // Exchanges the elements of two deques
+
 };
