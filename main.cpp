@@ -9,7 +9,7 @@
 -оператор постфиксного декрементирования как дружественную функцию для извлечения из дэка;
 -оператор постфиксного инкрементирования как дружественная функция для добавления элемента(пользовательское число) в дэк.
 
-* Задание 2. Бинарная операция
+*Задание 2. Бинарная операция
 Создать класс "Целое число".Необходимо перегрузить следующие операторы:
 -оператор сложения,
 -оператор вычитания,
@@ -25,9 +25,14 @@ template<class T> struct Data{
     T value;
     T* ptr = &value;
 };
-
+void menu(){
+    std::cout<<"1 - add new element push_back()\n2 - add new element push_front()\n3 - erase an element pop_back()\n"\
+    "4 - erase an element pop_front()\n5 - define size of the deque\n6 - define peek\n7 - is the deque empty?\n"\
+    "8 - print()\n9 - operator !\n0 - exit"<<std::endl;
+}
 int main() {
-    Deque<int> deque;
+    Deque<int> deque ;
+
     int sizeOfDeque = 0;
     int choose = 0;
     std::cout<<"input size of deque: ";
@@ -53,9 +58,57 @@ int main() {
                 break;
         }
     }
+    std::cout<<"Your deque:\n"<<deque<<"\n";
+    std::cout<<"what do you want to do in the next step?\n";
+    int ch;
+    do{
+        Data<int> *data = new Data<int>;
+        menu();
+        std::cin>>ch;
+        switch (ch) {
+            case 1:
+                std::cout << "input a value:"<<std::endl;
+                std::cin >> data->value;
+                deque.push_back(data->ptr);
+                std::cout<<"success!"<<std::endl;
+                break;
+            case 2:
+                std::cout << "input a value:"<<std::endl;
+                std::cin >> data->value;
+                deque.push_front(data->ptr);
+                std::cout<<"success!"<<std::endl;
+                break;
+            case 3:
+                deque.pop_back();
+                std::cout<<"success!"<<std::endl;
+                break;
+            case 4:
+                deque.pop_front();
+                std::cout<<"success!"<<std::endl;
+                break;
+            case 5:
+                std::cout<<"size of the deque: "<<deque.size_deque()<<std::endl;
+                break;
+            case 6:
+                std::cout<<"peek of the deque: "<<deque.peek()<<std::endl;
+                break;
+            case 7:
+                std::cout<<deque.isEmpty()<<std::endl;
+                break;
+            case 8:
+                std::cout<<"Your deque:\n"<<deque<<std::endl;
+                break;
+            case 9:
+                !deque;
+                std::cout<<std::endl;
+                break;
+            default:
+                if(ch != 0)
+                    std::cout<<"incorrect input!"<<std::endl;
+        }
 
-    std::cout<<deque<<"\n";
-    std::cout<<"negative data: -"<<deque;
+    } while (ch != 0);
+
     return 0;
 }
 

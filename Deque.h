@@ -1,6 +1,5 @@
 #pragma once
 #include<iostream>
-
 template<class T> struct Node {
 
     T* Data;
@@ -90,7 +89,7 @@ public:
 
     const T peek() {
         if (head)
-            return head->Data;
+            return *head->Data;
         else
             return 0;
     }
@@ -116,14 +115,17 @@ public:
         }
         return *this;
     }
-   /* T& operator--(){//prefix decrement operator
-
-    }*/
 
     friend std::ostream& operator<<(std::ostream& os, const Deque<T>& obj) {
         for (Node<T>* i = obj.head; i != NULL; i = i->Next)
             os << *i->Data  << " ";
         return os;
+    }
+    void operator !(){
+        for (Node<T>* i = this->head; i != NULL; i = i->Next) {
+            std::cout << (*i->Data - 2 * (*i->Data))<< " ";
+        }
+        return;
     }
 
 };
