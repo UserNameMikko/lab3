@@ -31,7 +31,7 @@ void menu(){
     "8 - print()\n9 - operator !\n0 - exit"<<std::endl;
 }
 int main() {
-    Deque<int> deque ;
+    Deque<double> deque ;
 
     int sizeOfDeque = 0;
     int choose = 0;
@@ -40,7 +40,7 @@ int main() {
 
     // fill the deque
     for(int i = 0; i < sizeOfDeque;i++) {
-        Data<int> *data = new Data<int>;
+        Data<double> *data = new Data<double>;
         std::cout << "input a value: ";
         std::cin >> data->value;
         std::cout << "choose how do you want to fill the deque:\n1-push_front\n2-push_back\n-->";
@@ -62,7 +62,7 @@ int main() {
     std::cout<<"what do you want to do in the next step?\n";
     int ch;
     do{
-        Data<int> *data = new Data<int>;
+        Data<double> *data = new Data<double>;
         menu();
         std::cin>>ch;
         switch (ch) {

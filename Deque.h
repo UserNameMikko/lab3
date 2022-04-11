@@ -45,7 +45,7 @@ public:
     }
     T* pop_front(){ // Erases the element at the start of the deque
         if (head) {
-            int* temp = head->Data;
+            T* temp = head->Data;
             Node<T>* p = head;
             head = p->Next;
             delete[] p;
