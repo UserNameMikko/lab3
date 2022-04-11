@@ -94,8 +94,8 @@ public:
             return 0;
     }
 
-    const bool isEmpty() {
-        return size == 0;
+    const std::string isEmpty() {
+        return size == 0?"true":"false";
     }
     T& operator= (const Deque& obj) {
         if (this == &obj)
@@ -125,6 +125,24 @@ public:
         for (Node<T>* i = this->head; i != NULL; i = i->Next) {
             std::cout << (*i->Data - 2 * (*i->Data))<< " ";
         }
+        std::cout<<std::endl;
+        return;
+    }
+
+    void operator--(){ // prefix decrement this->data -= 1
+        for (Node<T>* i = this->head; i != NULL; i = i->Next) {
+            std::cout << --(*i->Data)<< " ";
+
+        }
+        std::cout<<std::endl;
+        return;
+    }
+    void operator++(){ // prefix increment this->data += 0.5
+        for (Node<T>* i = this->head; i != NULL; i = i->Next) {
+            (*i->Data) += 0.5;
+            std::cout << (*i->Data) << " ";
+        }
+        std::cout<<std::endl;
         return;
     }
 

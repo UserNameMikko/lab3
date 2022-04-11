@@ -21,24 +21,28 @@
 На усмотрение студента остается решение какой оператор какой перегрузки требует(метод или дружественная функция)*/
 #include "Deque.h"
 #include "Int.h"
+
 template<class T> struct Data{
     T value;
     T* ptr = &value;
 };
+
 void menu(){
     std::cout<<"1 - add new element push_back()\n2 - add new element push_front()\n3 - erase an element pop_back()\n"\
     "4 - erase an element pop_front()\n5 - define size of the deque\n6 - define peek\n7 - is the deque empty?\n"\
-    "8 - print()\n9 - operator !\n0 - exit"<<std::endl;
+    "8 - print()\n9 - operator !\n10- prefix decrement\n11 - prefix increment\n"\
+    "12 - postfix decrement\n13 - postfix increment\n0 - exit"<<std::endl;
 }
 int main() {
+    //initializing of variables
     Deque<double> deque ;
-
     int sizeOfDeque = 0;
     int choose = 0;
     std::cout<<"input size of deque: ";
     std::cin>>sizeOfDeque;
 
     // fill the deque
+
     for(int i = 0; i < sizeOfDeque;i++) {
         Data<double> *data = new Data<double>;
         std::cout << "input a value: ";
@@ -58,8 +62,11 @@ int main() {
                 break;
         }
     }
+    //main part of the program
+
     std::cout<<"Your deque:\n"<<deque<<"\n";
     std::cout<<"what do you want to do in the next step?\n";
+
     int ch;
     do{
         Data<double> *data = new Data<double>;
@@ -100,8 +107,16 @@ int main() {
                 break;
             case 9:
                 !deque;
-                std::cout<<std::endl;
                 break;
+            case 10:
+                --deque;
+                break;
+            case 11:
+                ++deque;
+                break;
+            case 12://postfix decrement
+                break;
+            case 13: //postfix increment
             default:
                 if(ch != 0)
                     std::cout<<"incorrect input!"<<std::endl;
