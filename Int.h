@@ -48,5 +48,4 @@ public:
         std::cout<<field_i<<std::endl;
     }
 
-
 };
