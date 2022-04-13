@@ -41,14 +41,15 @@ int main() {
     Deque<double> deque;
     int sizeOfDeque = 0;
     int choose = 0;
-    std::cout<<"input size of deque: ";
+
+    std::cout<<"-------DEQUE-------\n\ninput size of deque->";
     std::cin>>sizeOfDeque;
 
     // fill the deque
 
     for(int i = 0; i < sizeOfDeque;i++) {
         Data<double> *data = new Data<double>;
-        std::cout << "input a value: ";
+        std::cout << "input a value->";
         std::cin >> data->value;
         std::cout << "choose how do you want to fill the deque:\n1-push_front\n2-push_back\n-->";
         std::cin >> choose;
@@ -60,7 +61,7 @@ int main() {
                 deque.push_back(data->ptr);
                 break;
             default://exception
-                std::cout<<("Incorrect input")<<std::endl;
+                std::cout<<("Incorrect input!")<<std::endl;
                 i--;
                 break;
         }
@@ -77,13 +78,13 @@ int main() {
         std::cin>>ch;
         switch (ch) {
             case 1:
-                std::cout << "input a value:"<<std::endl;
+                std::cout << "input a value->"<<std::endl;
                 std::cin >> data->value;
                 deque.push_back(data->ptr);
                 std::cout<<"success!"<<std::endl;
                 break;
             case 2:
-                std::cout << "input a value:"<<std::endl;
+                std::cout << "input a value->"<<std::endl;
                 std::cin >> data->value;
                 deque.push_front(data->ptr);
                 std::cout<<"success!"<<std::endl;
@@ -130,6 +131,9 @@ int main() {
 
     } while (ch != 0);
     // the second part of the program
+    //class int
+
+
 
     return 0;
 }
