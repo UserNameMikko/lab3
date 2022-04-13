@@ -1,15 +1,4 @@
 #include <iostream>
-/*Задание 2. Бинарная операция
-Создать класс "Целое число".Необходимо перегрузить следующие операторы:
--оператор сложения,
--оператор вычитания,
--оператор умножения,
--оператор деления
-как для работы с другими экземплярами класса, так и с пользовательскими числами;
--оператор преобразования в int.
-Необходимо учитывать то, что пользовательское число и объект класса могут находится и слева и справа от оператора.
-На усмотрение студента остается решение какой оператор какой перегрузки требует(метод или дружественная функция)*/
-
 class Int{
 private:
     int field_i;
@@ -23,27 +12,50 @@ public:
         this->field_i = intCopy.field_i;
     }
 
-    void setMyInt(int& value){ // setter
+    void setMyInt(int& value){
         field_i = value;
     }
-    int getMyInt() const{ //getter
+    int getMyInt() const{
         return field_i;
     }
-    Int operator- (const Int & i){ // subtraction
+
+    // subtraction
+    Int operator- (const Int & i){
         return Int(this->field_i - i.field_i);
     }
-    friend Int operator/ (const Int& l, const Int& i){ // division
+    Int operator-(const int s){
+        return Int(this->field_i-s);
+    }
+
+    // division
+    friend Int operator/ (const Int& l, const Int& i){
         return Int(l.field_i/i.field_i);
     }
-    friend Int operator+ (const Int& l, const Int& i){ // addition
+    friend Int operator /(const Int& l, const int s){
+        return Int(l.field_i/s);
+    }
+
+    // addition
+    friend Int operator+ (const Int& l, const Int& i){
         return Int(l.field_i+i.field_i);
     }
-    friend Int operator *(const Int& f, const Int& s){ // multiple
+    friend Int operator+ (const Int& l, const int s){
+        return Int(l.field_i+s);
+    }
+
+    // multiplication
+    friend Int operator *(const Int& f, const Int& s){
         return Int(f.field_i*s.field_i);
     }
-    operator int ()const{ // convert to int
-        return field_i;
+    friend  Int operator*(const Int& f, const int s){
+        return Int(f.field_i*s);
     }
+
+    //convert Int to int
+    operator int ()const{ // convert to int
+        return this->field_i;
+    }
+
     void out()const{
         std::cout<<field_i<<std::endl;
     }

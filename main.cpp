@@ -21,7 +21,7 @@
 На усмотрение студента остается решение какой оператор какой перегрузки требует(метод или дружественная функция)*/
 #include "Deque.h"
 #include "Int.h"
-/*
+
 template<class T> struct Data{
     T value;
     T* ptr = &value;
@@ -31,13 +31,13 @@ void menu(){
     std::cout<<"1 - add new element push_back()\n2 - add new element push_front()\n3 - erase an element pop_back()\n"\
     "4 - erase an element pop_front()\n5 - define size of the deque\n6 - define peek\n7 - is the deque empty?\n"\
     "8 - print()\n9 - operator !\n10- prefix decrement\n11 - prefix increment\n"\
-    "12 - postfix decrement\n13 - postfix increment\n0 - exit"<<std::endl;
-}*/
+    "12 - postfix decrement\n13 - postfix increment\n0 - go to 'class Int' task"<<std::endl;
+}
 
 int main() {
 
     //initializing of variables
-/*
+
     Deque<double> deque;
     int sizeOfDeque = 0;
     int choose = 0;
@@ -132,47 +132,70 @@ int main() {
     } while (ch != 0);
     // the second part of the program
     //class int
-*/
+
     int inpFirst, inpSecond;
     Int first, second, res(0);
-
+    std::cout<<"--------INT--------"<<std::endl;
+    int typeOf;
     int c;
     do{
-        std::cout<<"1 - adding\n2 - subtraction\n3 - division\n4 - multiple\n0 - exit"<<std::endl;
+        std::cout<<"1 - addition\n2 - subtraction\n3 - division\n4 - multiplication\n"\
+        "5 - Convert Int to int\n0 - exit"<<std::endl;
         std::cin>>c;
         if (c==0)
             break;
-        std::cout<<"first num:";
-        std::cin>>inpFirst;
-        std::cout<<"second num:";
-        std::cin>>inpSecond;
-        first.setMyInt(inpFirst);
-        second.setMyInt(inpSecond);
-
+        if(c == 5){
+            std::cout<<"input a value for your Int:";
+            std::cin>>inpFirst;
+            first.setMyInt(inpFirst);
+        }else{
+            std::cout<<"1 - object - object\n2 - object - custom number\n";
+            std::cin>>typeOf;
+            std::cout<<"first num:";
+            std::cin>>inpFirst;
+            std::cout<<"second num:";
+            std::cin>>inpSecond;
+            first.setMyInt(inpFirst);
+            second.setMyInt(inpSecond);
+        }
         switch (c) {
             case 1:
-                res = first+second;
+                if(typeOf==1)
+                    res = first+second; // object + object
+                else if (typeOf == 2)
+                    res = first + inpSecond;//object + custom number
                 res.out();
                 break;
             case 2:
-                res = first-second;
+                if(typeOf==1)
+                    res = first-second; // object + object
+                else if (typeOf == 2)
+                    res = first-inpSecond;//object + custom number
                 res.out();
                 break;
             case 3:
-                res = first/second;
+                if(typeOf==1)
+                    res = first/second; // object + object
+                else if (typeOf == 2)
+                    res = first/inpSecond;//object + custom number
                 res.out();
                 break;
             case 4:
-                res = first*second;
-                //std::cout<<res<<std::endl;
+                if(typeOf==1)
+                    res = first*second; // object + object
+                else if (typeOf == 2)
+                    res = first*inpSecond;//object + custom number
                 res.out();
                 break;
             case 5:
+                int x;
+                x = int(first);
+                std::cout<<"int x = "<<x<<std::endl;
+                std::cout<<"conversion was completed"<<std::endl;
                 break;
             case 6:
                 break;
         }
-
     }while(c!=0);
     return 0;
 }

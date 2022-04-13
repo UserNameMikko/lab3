@@ -154,13 +154,13 @@ public:
         std::cout<<"input a value:"<<std::endl;
         std::cin>>Val->value;
         obj.push_back(Val->ptr);
-        std::cout<<"success!";
+        std::cout<<"success!"<<std::endl;
         return true;
 
     }
     friend bool operator--(Deque<T>& obj,int x){
         obj.pop_back();
-        std::cout<<"success!";
+        std::cout<<"success!"<<std::endl;
         return true;
     }
 
