@@ -11,6 +11,10 @@ template<class T> struct Node {
         Prev = NULL;
     }
 };
+template<class T> struct Value{
+    T value;
+    T* ptr = &value;
+};
 
 template<class T>
 class Deque {
@@ -144,6 +148,16 @@ public:
         }
         std::cout<<std::endl;
         return;
+    }
+    void operator ++(int x){
+        Value<double>* Val = new Value<double>;
+        //Value<int>* Val = new Value<int>;
+        std::cout<<"input a value:"<<std::endl;
+        std::cin>>Val->value;
+        Deque<T>::push_back(Val->ptr);
+    }
+    void operator--(int x){
+        Deque<T>::pop_back();
     }
 
 };

@@ -35,7 +35,8 @@ void menu(){
 }
 int main() {
     //initializing of variables
-    Deque<double> deque ;
+    Deque<double> deque;
+    //Deque<int> deque;
     int sizeOfDeque = 0;
     int choose = 0;
     std::cout<<"input size of deque: ";
@@ -45,6 +46,7 @@ int main() {
 
     for(int i = 0; i < sizeOfDeque;i++) {
         Data<double> *data = new Data<double>;
+        //Data<int> *data = new Data<int>;
         std::cout << "input a value: ";
         std::cin >> data->value;
         std::cout << "choose how do you want to fill the deque:\n1-push_front\n2-push_back\n-->";
@@ -69,7 +71,8 @@ int main() {
 
     int ch;
     do{
-        Data<double> *data = new Data<double>;
+        //Data<int> *data = new Data<int>;
+        Data<double>*data = new Data<double>;
         menu();
         std::cin>>ch;
         switch (ch) {
@@ -115,8 +118,11 @@ int main() {
                 ++deque;
                 break;
             case 12://postfix decrement
+                deque--;
                 break;
             case 13: //postfix increment
+                deque++;
+                break;
             default:
                 if(ch != 0)
                     std::cout<<"incorrect input!"<<std::endl;
