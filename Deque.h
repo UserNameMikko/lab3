@@ -30,6 +30,20 @@ public:
         head = NULL;
         tail = NULL;
     }
+    ~Deque(){
+        if((head == nullptr) || (size == 0)){
+            delete head;
+            size = 0;
+        }else{
+            for(;head->Next != nullptr;){
+                Node<T>* temp = head;
+                head = temp->Next;
+                delete temp;
+            }
+            delete head;
+            size = 0;
+        }
+    }
 
     T* pop_back() {// Erases the element at the end of the deque
         if (head) {

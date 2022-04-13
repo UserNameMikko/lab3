@@ -78,36 +78,36 @@ int main() {
         std::cin>>ch;
         switch (ch) {
             case 1:
-                std::cout << "input a value->"<<std::endl;
+                std::cout << "input a value->" << std::endl;
                 std::cin >> data->value;
                 deque.push_back(data->ptr);
-                std::cout<<"success!"<<std::endl;
+                std::cout << "success!" << std::endl;
                 break;
             case 2:
-                std::cout << "input a value->"<<std::endl;
+                std::cout << "input a value->" << std::endl;
                 std::cin >> data->value;
                 deque.push_front(data->ptr);
-                std::cout<<"success!"<<std::endl;
+                std::cout << "success!" << std::endl;
                 break;
             case 3:
                 deque.pop_back();
-                std::cout<<"success!"<<std::endl;
+                std::cout << "success!" << std::endl;
                 break;
             case 4:
                 deque.pop_front();
-                std::cout<<"success!"<<std::endl;
+                std::cout << "success!" << std::endl;
                 break;
             case 5:
-                std::cout<<"size of the deque: "<<deque.size_deque()<<std::endl;
+                std::cout << "size of the deque: " << deque.size_deque() << std::endl;
                 break;
             case 6:
-                std::cout<<"peek of the deque: "<<deque.peek()<<std::endl;
+                std::cout << "peek of the deque: " << deque.peek() << std::endl;
                 break;
             case 7:
-                std::cout<<deque.isEmpty()<<std::endl;
+                std::cout << deque.isEmpty() << std::endl;
                 break;
             case 8:
-                std::cout<<"Your deque:\n"<<deque<<std::endl;
+                std::cout << "Your deque:\n" << deque << std::endl;
                 break;
             case 9:
                 !deque;
@@ -125,10 +125,9 @@ int main() {
                 deque++;
                 break;
             default:
-                if(ch != 0)
-                    std::cout<<"incorrect input!"<<std::endl;
+                if (ch != 0)
+                    std::cout << "incorrect input!" << std::endl;
         }
-
     } while (ch != 0);
     // the second part of the program
     //class int
