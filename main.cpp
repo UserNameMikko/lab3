@@ -33,10 +33,12 @@ void menu(){
     "8 - print()\n9 - operator !\n10- prefix decrement\n11 - prefix increment\n"\
     "12 - postfix decrement\n13 - postfix increment\n0 - exit"<<std::endl;
 }
+
 int main() {
+
     //initializing of variables
+
     Deque<double> deque;
-    //Deque<int> deque;
     int sizeOfDeque = 0;
     int choose = 0;
     std::cout<<"input size of deque: ";
@@ -46,7 +48,6 @@ int main() {
 
     for(int i = 0; i < sizeOfDeque;i++) {
         Data<double> *data = new Data<double>;
-        //Data<int> *data = new Data<int>;
         std::cout << "input a value: ";
         std::cin >> data->value;
         std::cout << "choose how do you want to fill the deque:\n1-push_front\n2-push_back\n-->";
@@ -64,14 +65,13 @@ int main() {
                 break;
         }
     }
-    //main part of the program
+    //the first part of the program
 
     std::cout<<"Your deque:\n"<<deque<<"\n";
     std::cout<<"what do you want to do in the next step?\n";
 
     int ch;
     do{
-        //Data<int> *data = new Data<int>;
         Data<double>*data = new Data<double>;
         menu();
         std::cin>>ch;
@@ -129,6 +129,7 @@ int main() {
         }
 
     } while (ch != 0);
+    // the second part of the program
 
     return 0;
 }

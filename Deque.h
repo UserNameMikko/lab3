@@ -146,18 +146,22 @@ public:
             (*i->Data) += 0.5;
             std::cout << (*i->Data) << " ";
         }
-        std::cout<<std::endl;
+        std::cout<<"\nsuccess!"<<std::endl;
         return;
     }
-    void operator ++(int x){
+    friend bool operator++(Deque<T>& obj, int x){
         Value<double>* Val = new Value<double>;
-        //Value<int>* Val = new Value<int>;
         std::cout<<"input a value:"<<std::endl;
         std::cin>>Val->value;
-        Deque<T>::push_back(Val->ptr);
+        obj.push_back(Val->ptr);
+        std::cout<<"success!";
+        return true;
+
     }
-    void operator--(int x){
-        Deque<T>::pop_back();
+    friend bool operator--(Deque<T>& obj,int x){
+        obj.pop_back();
+        std::cout<<"success!";
+        return true;
     }
 
 };
